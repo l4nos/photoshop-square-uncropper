@@ -103,7 +103,7 @@ if (inputFolder != null) {
             // Get the file name and create the output path
             var fileName = file.name;
             var extension = fileName.split('.').pop().toLowerCase();
-            var outputPath = inputFolder + "/_square_" + fileName;
+            var outputPath = inputFolder + "/square_" + fileName;
 
             if (extension === 'jpg' || extension === 'jpeg') {
                 // Save the image as optimized JPEG for web
