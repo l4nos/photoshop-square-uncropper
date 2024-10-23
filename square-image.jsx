@@ -1,5 +1,11 @@
 #target photoshop
 
+// Function to trim the image based on transparent pixels
+function trimTransparentPixels() {
+    var doc = app.activeDocument;
+    doc.trim(TrimType.TRANSPARENT, false, true, true, true); // Trims based on transparent pixels
+}
+
 // Function to make the canvas square and resize to user-defined size
 function makeSquareAndResize(squareSize) {
     var doc = app.activeDocument;
@@ -70,6 +76,7 @@ if (inputFolder != null) {
         var file = files[i];
         if (file instanceof File) {
             app.open(file);
+            trimTransparentPixels(); // Trim the transparent pixels before resizing
             makeSquareAndResize(squareSize);
 
             // Get the file name and create the output path
